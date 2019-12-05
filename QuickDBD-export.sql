@@ -161,8 +161,30 @@ SELECT * FROM employees
 WHERE first_name= 'Hercules'
 AND last_name like 'B%';
 
+-- 6-List all employees in the Sales department, including their employee number, last name, first name, and department name.
 
 
-	
-	
+SELECT * FROM departments;
+-- dept_name=Sales
+-- dep_no
+SELECT * FROM departments_employee;
+-- dep_no
+-- emp_no
+SELECT * FROM employees;
+-- emp_no
+-- last_name
+-- first_name
 
+SELECT
+de.emp_no AS "Employee Number",
+e.last_name AS "Last Name",
+e.first_name AS "First Name",
+d.dept_name AS "Department Name"
+FROM departments_employee AS de
+INNER JOIN employees AS e
+ON
+de.emp_no=e.emp_no
+LEFT JOIN departments AS d
+ON
+d.dep_no=de.dep_no
+WHERE d.dept_name='Sales';
