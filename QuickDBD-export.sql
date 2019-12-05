@@ -101,3 +101,44 @@ GROUP BY last_name;
 
 -- 3-List the manager of each department with the following information: 
 -- department number, department name, the manager's employee number, last name, first name, and start and end employment dates.
+SELECT * FROM Departments_Manager;
+-- dept_no
+
+SELECT * FROM Departments;
+-- dep_name
+
+SELECT * FROM employees;
+-- emp_no
+-- last_name
+-- first_name
+-- hire_date
+
+
+
+SELECT dm.dept_no AS "Department Number",
+d.dept_name AS "Department Name",
+dm.emp_no As "Employee Number",
+e.last_name As "Last Name",
+e.first_name AS "First Name ",
+dm.from_date As "Date Start",
+dm.to_date As "Date Ends"
+FROM Departments_Manager AS dm 
+INNER JOIN Departments AS d
+ON
+(dm.dept_no=d.dep_no)
+INNER JOIN employees AS e
+ON 
+(dm.emp_no=e.emp_no);
+
+
+	
+
+
+
+
+
+
+
+	
+	
+
