@@ -188,3 +188,19 @@ LEFT JOIN departments AS d
 ON
 d.dep_no=de.dep_no
 WHERE d.dept_name='Sales';
+
+-- List all employees in the Sales and Development departments, including their employee number, last name, first name, and department name.
+
+SELECT
+de.emp_no AS "Employee Number",
+e.last_name AS "Last Name",
+e.first_name AS "First Name",
+d.dept_name AS "Department Name"
+FROM departments_employee AS de
+INNER JOIN employees AS e
+ON
+de.emp_no=e.emp_no
+LEFT JOIN departments AS d
+ON
+d.dep_no=de.dep_no
+WHERE d.dept_name='Sales' OR d.dept_name='Development';
