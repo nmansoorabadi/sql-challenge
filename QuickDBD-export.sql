@@ -130,9 +130,30 @@ INNER JOIN employees AS e
 ON 
 (dm.emp_no=e.emp_no);
 
+-- 4-List the department of each employee with the following information: employee number, last name, first name, and department name.
+SELECT * FROM employees;
+-- emp_no
+-- last_name
+-- first_name
+SELECT * FROM departments_employee;
+-- emp_no
+-- dep_no
+SELECT * FROM departments;
+-- dept_name
+-- dep_no
 
-	
-
+SELECT 
+e.emp_no AS "Employee Number",
+e.last_name As "Last Name",
+e.first_name As "First Name",
+d.dept_name As "Department Name"
+FROM employees AS e
+INNER JOIN departments_employee AS de
+ON
+e.emp_no=de.emp_no
+LEFT JOIN departments AS d
+ON
+de.dep_no=d.dep_no;
 
 
 
